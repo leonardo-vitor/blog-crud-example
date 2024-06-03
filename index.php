@@ -11,14 +11,14 @@ $router->namespace("Source\Controllers");
 * Web
 */
 $router->group(null);
-$router->get("/", "Articles:home", "articles.index");
+$router->get("/", "Articles:index", "articles.index");
 
 /*
  * Error
  */
 $router->namespace("Source\Controllers");
 $router->group("ops");
-$router->get("/{errcode}", "Web:error", "web.error");
+$router->get("/{errcode}", "Error:show", "error.show");
 
 /*
  * Process
@@ -26,7 +26,7 @@ $router->get("/{errcode}", "Web:error", "web.error");
 $router->dispatch();
 
 if ($router->error()) {
-    $router->redirect("web.error", ["errcode" => $router->error()]);
+    $router->redirect("error.show", ["errcode" => $router->error()]);
 }
 
 ob_end_flush();
