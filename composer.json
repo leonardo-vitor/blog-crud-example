@@ -1,0 +1,32 @@
+{
+  "name": "lonardovitor/blog-crud-example",
+  "description": "Blog em PHP",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Leonardo Vitor dos Santos",
+      "email": "lvitor347@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Source\\": "source/"
+    },
+    "files": [
+      "source/Boot/Config.php",
+      "source/Boot/Helpers.php"
+    ]
+  },
+  "require": {
+    "php": "^8.0",
+    "ext-pdo": "*",
+    "ext-mbstring": "*",
+    "coffeecode/router": "2.*",
+    "coffeecode/paginator": "1.0.7",
+    "coffeecode/datalayer": "1.1.8",
+    "league/plates": "3.*",
+    "vlucas/phpdotenv": "^5.4"
+  }
+}
