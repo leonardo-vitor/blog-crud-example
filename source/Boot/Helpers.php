@@ -142,14 +142,6 @@ function app(string $param): string
  */
 function url(string $path = null): string
 {
-    if ($_SERVER["HTTP_HOST"] == "localhost") {
-        if ($path) {
-            return app("test") . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
-        }
-
-        return app("test");
-    }
-
     if ($path) {
         return app("domain") . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
     }

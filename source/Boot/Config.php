@@ -12,7 +12,6 @@ define("APP_DATA", [
     "name" => "Blog CRUD Example",
     "desc" => "Crie, edite e exclua seus artigos de forma simples e rápida",
     "domain" => $_ENV['URL_DOMAIN'],
-    "test" => $_ENV['URL_LOCAL'],
     "locale" => "pt_BR"
 ]);
 
