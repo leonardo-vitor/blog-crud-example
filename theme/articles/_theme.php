@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <?php /*= $head; */?>
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
@@ -27,45 +25,21 @@
 
 
 <div class="min-vh-100">
-    <div class="bg-tapete">
-        <div class="p-4 mb-3">
-            <div class="container py-5">
-                <div class="row justify-content-center py-3 mb-5 align-items-center d-print-none">
-                    <div class="col-12 col-md-5 col-lg-3 text-center">
-                        <a href="<?= $router->route("web.home") ?>">
-                            <img src="<?= shared("assets/images/logo-semecti-sem-brasao-borda.png", true) ?>"
-                                 alt="Secretaria Municipal de Educação, Ciência, Tecnologia e Inovação" class="mw-100">
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-md-5 col-lg-3 text-center">
-                        <a href="https://www.itaquaquecetuba.sp.gov.br">
-                            <img src="<?= shared("assets/images/logo-cultura-3.png", true) ?>"
-                                 alt="Secretaria Municipal de Cultura" class="mw-100">
-                        </a>
-                    </div>
-
-                    <div class="col-12 col-md-5 col-lg-4 text-center">
-                        <a href="https://www.itaquaquecetuba.sp.gov.br">
-                            <img src="<?= shared("assets/images/logotipo-prefeitura-itaquaquecetuba_v3-borda.png", true) ?>"
-                                 alt="Prefeitura de Itaquaquecetuba" class="mw-100">
-                        </a>
-                    </div>
-                </div>
-
-                <h1 class="display-4 fw-bold text-white text-center text-shadow">
-                    <?= site("name") ?>
-                </h1>
-
-                <h2 class="fs-1 fst-italic text-white text-center text-shadow">
-                    Tema "Fraternidade e fome" e o lema "Dai-lhes vós de comer"(Mt 14, 16)
-                </h2>
-            </div>
+    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+        <div class="container py-3">
+            <h1 class="display-5 fw-bold"><?= app('name') ?></h1>
+            <p class="col-md-8 fs-4"><?= app('desc') ?></p>
+            <a href="<?= $router->route('articles.index') ?>" class="btn btn-primary">
+                Artigos cadastrados
+            </a>
+            <a href="<?= $router->route('articles.create') ?>" class="btn btn-secondary">
+                Adicionar artigo
+            </a>
         </div>
     </div>
 
     <div class="container">
-        <?= $v->section("content") ?>
+        <?= $this->section("content") ?>
     </div>
 </div>
 
@@ -79,6 +53,6 @@
 <!--<script src="--><?php //= shared("assets/js/jquery-ui.js"); ?><!--"></script>-->
 <script src="<?= shared("assets/js/jquery-form.js"); ?>"></script>
 <script src="<?= shared("assets/js/scripts.js"); ?>"></script>
-<?= $v->section("scripts"); ?>
+<?= $this->section("scripts"); ?>
 </body>
 </html>

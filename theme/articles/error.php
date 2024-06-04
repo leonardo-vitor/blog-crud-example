@@ -1,4 +1,4 @@
-<?php $v->layout("articles/_theme"); ?>
+<?php $this->layout("articles/_theme"); ?>
 
 <div class="row justify-content-center py-3">
     <div class="col-12 col-md-6">

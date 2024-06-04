@@ -8,7 +8,7 @@
  */
 function str_slug(string $string): string
 {
-    $string = filter_var(mb_strtolower($string), FILTER_SANITIZE_STRIPPED);
+    $string = strip_tags(mb_strtolower($string));
     $formats = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜüÝÞßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿRr"!@#$%&*()_-+={[}]/?;:.,\\\'<>°ºª';
     $replace = 'aaaaaaaceeeeiiiidnoooooouuuuuybsaaaaaaaceeeeiiiidnoooooouuuyybyRr                                 ';
 
@@ -58,7 +58,7 @@ function str_title(string $string): string
  */
 function str_textarea(string $text): string
 {
-    $text = filter_var($text, FILTER_SANITIZE_STRIPPED);
+    $text = filter_var($text, FILTER_SANITIZE_SPECIAL_CHARS);
     $arrayReplace = ["&#10;", "&#10;&#10;", "&#10;&#10;&#10;", "&#10;&#10;&#10;&#10;", "&#10;&#10;&#10;&#10;&#10;"];
     return "<p>" . str_replace($arrayReplace, "</p><p>", $text) . "</p>";
 }
@@ -142,14 +142,6 @@ function app(string $param): string
  */
 function url(string $path = null): string
 {
-    if ($_SERVER["HTTP_HOST"] == "localhost") {
-        if ($path) {
-            return app("test") . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
-        }
-
-        return app("test");
-    }
-
     if ($path) {
         return app("domain") . "/" . ($path[0] == "/" ? mb_substr($path, 1) : $path);
     }
