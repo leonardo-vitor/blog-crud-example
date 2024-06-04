@@ -79,7 +79,7 @@ class Articles extends Controller
 
         if (!$article) {
             message("Não foi possível encontrar o artigo selecionado", "warning", true);
-            $this->router->redirect("articles.index");
+            echo json_encode(["redirect" => $this->router->route("articles.index")]);
             return;
         }
 
@@ -98,7 +98,7 @@ class Articles extends Controller
 
         if (!$article) {
             message("Não foi possível encontrar o artigo selecionado", "warning", true);
-            $this->router->redirect("articles.index");
+            echo json_encode(["redirect" => $this->router->route("articles.index")]);
             return;
         }
 
@@ -126,7 +126,7 @@ class Articles extends Controller
 
         if (!$article) {
             message("Não foi possível encontrar o artigo selecionado", "warning", true);
-            $this->router->redirect("articles.index");
+            echo json_encode(["redirect" => $this->router->route("articles.index")]);
             return;
         }
 
@@ -143,5 +143,29 @@ class Articles extends Controller
 
         message("O artigo {$article->title}, foi alterado com sucesso", "success", true);
         echo json_encode(["redirect" => $this->router->route("articles.index")]);
+    }
+
+    /**
+     * @param array $data
+     * @return void
+     */
+    public function destroy(array $data): void
+    {
+        $article = (new Article())->find('uri = :uri', "uri={$data['uri']}")->fetch();
+
+        if (!$article) {
+            message("Não foi possível encontrar o artigo selecionado", "warning", true);
+            echo json_encode(["reload" => true]);
+            return;
+        }
+
+        if (!$article->destroy()) {
+            $json["message"] = message($article->fail()->getMessage(), "warning");
+            echo json_encode($json);
+            return;
+        }
+
+        message("O artigo {$article->title}, foi excluído com sucesso", "success", true);
+        echo json_encode(["reload" => true]);
     }
 }

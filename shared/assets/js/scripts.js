@@ -29,6 +29,35 @@ $(function () {
         });
     });
 
+    $("[data-post]").click(function (e) {
+        e.preventDefault();
+
+        let clicked = $(this);
+        let data = clicked.data();
+        let action = data.post;
+
+        if (data.confirm) {
+            let deleteConfirm = confirm(data.confirm);
+            if (!deleteConfirm) {
+                return;
+            }
+        }
+
+        $.ajax({
+            url: action,
+            data: data,
+            type: "post",
+            dataType: "json",
+            beforeSend: function (load) {
+                $(".message").remove();
+                ajax_load("open");
+            },
+            success: function (response) {
+                ajaxResponseManipulate(response);
+            }
+        });
+    });
+
     $(".ajax_response .message").each(function (e, m) {
         ajax_notify(m, ajaxResponseBaseTime += 1)
     });
