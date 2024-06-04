@@ -16,7 +16,6 @@ class Session
     public function __construct()
     {
         if (!session_id()) {
-            session_save_path(SESSION_PATH);
             session_start();
         }
     }

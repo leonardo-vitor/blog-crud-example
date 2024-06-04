@@ -9,8 +9,8 @@ setlocale(LC_ALL, array("pt_BR", "pt_BR.utf-8", "portuguese"));
 
 /** Configurações base do site **/
 define("APP_DATA", [
-    "name" => "Blog",
-    "desc" => "Blog - Crie, edite e exclua seus artigos de forma simples e rápida",
+    "name" => "Blog CRUD Example",
+    "desc" => "Crie, edite e exclua seus artigos de forma simples e rápida",
     "domain" => $_ENV['URL_DOMAIN'],
     "test" => $_ENV['URL_LOCAL'],
     "locale" => "pt_BR"
