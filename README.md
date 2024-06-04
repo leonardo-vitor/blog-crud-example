@@ -45,4 +45,4 @@ composer install
 ```
 
 ## Demo do projeto
-Para visualizar a demo do projeto, acesse: (https:)
+Para visualizar a demo do projeto, acesse: [bytescriativo.com/blog](https://github.com/thephpleague/plates)
