@@ -29,6 +29,12 @@
         <div class="container py-3">
             <h1 class="display-5 fw-bold"><?= app('name') ?></h1>
             <p class="col-md-8 fs-4"><?= app('desc') ?></p>
+            <a href="<?= $router->route('articles.index') ?>" class="btn btn-primary">
+                Artigos cadastrados
+            </a>
+            <a href="<?= $router->route('articles.create') ?>" class="btn btn-secondary">
+                Adicionar artigo
+            </a>
         </div>
     </div>
 
