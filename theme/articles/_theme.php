@@ -25,8 +25,8 @@
 
 
 <div class="min-vh-100">
-    <div class="p-5 mb-4 bg-body-tertiary rounded-3">
-        <div class="container py-3">
+    <div class="p-5 mb-4 bg-secondary">
+        <div class="container py-3 text-white">
             <h1 class="display-5 fw-bold"><?= app('name') ?></h1>
             <p class="col-md-8 fs-4"><?= app('desc') ?></p>
             <a href="<?= $router->route('articles.index') ?>" class="btn btn-primary">
